@@ -1,0 +1,38 @@
+#+title: Use Gnome shell’s screen recorder from within Emacs
+
+* Installation
+
+I recommend to use [[https://cask.github.io/why-cask.html][Cask]]. Add this to your =Cask= file:
+
+#+BEGIN_SRC elisp
+(depends-on "gnome-screencast" :git "https://github.com/juergenhoetzel/emacs-gnome-screencast.git")
+#+END_SRC
+
+* Usage
+
+Start a screencast of the whole screen:
+#+BEGIN_SRC elisp
+(gnome-screencast "Output.webm")
+#+END_SRC
+Same, but with the specify a sub-area:
+#+BEGIN_SRC elisp
+(gnome-screencast-area "Output.webm" 100 200 1200 600)
+#+END_SRC
+Stop the recording:
+#+BEGIN_SRC 
+(gnome-screencast-stop)
+#+END_SRC
+
+* Example Use case
+
+I use [[https://github.com/bbatsov/projectile][Projectile]] for interacting with my projects. I can automatically create a file corresponding to the project name, when switching to a project:
+#+BEGIN_SRC elisp
+  (defun gnome-screencast-toggle-recording ()
+    (when-let (project-name (file-name-base (directory-file-name (projectile-project-root))))
+      (gnome-screencast-stop)
+      (gnome-screencast (concat project-name ".webm"))))
+  (add-hook 'projectile-after-switch-project-hook #'gnome-screencast-toggle-recording)
+#+END_SRC
+
+#+RESULTS:
+
