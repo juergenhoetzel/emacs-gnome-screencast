@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2019  Jürgen Hötzel
 
-;; Version: 1.1
+;; Version: 1.2
 ;; Author: Jürgen Hötzel <juergen@hoetzel.info>
 ;; Keywords: tools, multimedia
 ;; Package-Requires: ((emacs "25"))
@@ -32,8 +32,6 @@
 
 (defun gnome-screencast-available-p ()
   (dbus-ping :session "org.gnome.Shell.Screencast"))
-
-(gnome-screencast-available-p)
 
 (defun gnome-screencast--make-options (&optional draw-cursor framerate pipeline)
   (let ((options `((:dict-entry "draw-cursor" (:variant :boolean ,draw-cursor)))))
