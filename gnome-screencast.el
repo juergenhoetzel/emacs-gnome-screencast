@@ -38,9 +38,9 @@
 (defun gnome-screencast--make-options (&optional draw-cursor framerate pipeline)
   (let ((options `((:dict-entry "draw-cursor" (:variant :boolean ,draw-cursor)))))
     (when framerate
-      (add-to-list 'options `(:dict-entry "framerate" (:variant :int32 ,framerate))))
+      (push `(:dict-entry "framerate" (:variant :int32 ,framerate)) options))
     (when pipeline
-      (add-to-list 'options `(:dict-entry "pipeline" (:variant :string ,pipeline))))
+      (push `(:dict-entry "pipeline" (:variant :string ,pipeline)) options))
     options))
 
 ;;;###autoload
