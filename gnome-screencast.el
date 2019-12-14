@@ -80,7 +80,6 @@ The other arguments have the same meaning as with `gnome-screencast'"
     (`(t ,filename) filename)))
 
 (defun gnome-screencast-stop ()
-  (interactive)
   "Stop the recording started by either `gnome-screencast' or `gnome-screencast-area'"
   (interactive)
   (dbus-call-method
