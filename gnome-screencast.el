@@ -1,7 +1,8 @@
-;;; gnome-screencast.el --- Use Gnome screen recording functionality using elisp.  -*- lexical-binding: t; -*-
+;;; gnome-screencast.el --- Use Gnome screen recording functionality using elisp  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Jürgen Hötzel
 
+;; Version: 1.0
 ;; Author: Jürgen Hötzel <juergen@hoetzel.info>
 ;; Keywords: tools, multimedia
 ;; Package-Requires: ((emacs "25"))
