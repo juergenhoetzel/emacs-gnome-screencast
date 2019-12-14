@@ -14,7 +14,7 @@ Start a screencast of the whole screen:
 #+BEGIN_SRC elisp
 (gnome-screencast "Output.webm")
 #+END_SRC
-Same, but with the specify a sub-area:
+Same, but specify a sub-area:
 #+BEGIN_SRC elisp
 (gnome-screencast-area "Output.webm" 100 200 1200 600)
 #+END_SRC
@@ -25,7 +25,7 @@ Stop the recording:
 
 * Example Use case
 
-I use [[https://github.com/bbatsov/projectile][Projectile]] for interacting with my projects. I can automatically create a file corresponding to the project name, when switching to a project:
+I use [[https://github.com/bbatsov/projectile][Projectile]] for interacting with my projects. Use this =projectile= hook to automatically create a screencast file corresponding to the project name, when switching projects:
 #+BEGIN_SRC elisp
   (defun gnome-screencast-toggle-recording ()
     (when-let (project-name (file-name-base (directory-file-name (projectile-project-root))))
@@ -35,4 +35,5 @@ I use [[https://github.com/bbatsov/projectile][Projectile]] for interacting with
 #+END_SRC
 
 #+RESULTS:
+| gnome-screencast-toggle-recording |
 
