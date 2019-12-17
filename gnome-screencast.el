@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2019  Jürgen Hötzel
 
-;; Version: 1.2
+;; Version: 1.4
 ;; Author: Jürgen Hötzel <juergen@hoetzel.info>
 ;; Keywords: tools, multimedia
 ;; Package-Requires: ((emacs "25"))
