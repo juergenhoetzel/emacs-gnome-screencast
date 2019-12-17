@@ -31,9 +31,12 @@
 
 
 (defun gnome-screencast-available-p ()
+  "Return t if Gnome Screencast is available."
   (dbus-ping :session "org.gnome.Shell.Screencast"))
 
 (defun gnome-screencast--make-options (&optional draw-cursor framerate pipeline)
+  ; checkdoc-params: (draw-cursor framerate pipeline)"
+  "Create a dbus dictionary of optional parameters."
   (let ((options `((:dict-entry "draw-cursor" (:variant :boolean ,draw-cursor)))))
     (when framerate
       (push `(:dict-entry "framerate" (:variant :int32 ,framerate)) options))
@@ -48,7 +51,7 @@ PREFIX specifies the template for the filename to use.  The set of
 optional parameters consists of:
 
 DRAW-CURSOR Whether the cursor should be included (nil)
-FRAMERATE   The number of frames per second that should be recorded if possible (30)
+FRAMERATE   The number of frames per second that should be recorded (30)
 PIPELINE    The GStreamer pipeline used to encode recordings
 
 Returns the filename of the screencast or nil if the start of recording failed."
@@ -62,11 +65,14 @@ Returns the filename of the screencast or nil if the start of recording failed."
 	  (gnome-screencast--make-options draw-cursor framerate pipeline))
     (`(t ,filename) filename)))
 
-(defun gnome-screencast-area (prefix x y width height &optional draw-cursor framerate pipeline)
-  "Records a screencast.  X and Y specifies coordinates of the area to
-capture, WIDTH and HEIGHT specifies area to capture
+(defun gnome-screencast-area
+    (prefix x y width height &optional draw-cursor framerate pipeline)
+  ; checkdoc-params: (prefix draw-cursor framerate pipeline)"
+  "Record a screencast.
+X and Y specifies coordinates of the area to capture, WIDTH and HEIGHT
+specifies area to capture.
 
-The other arguments have the same meaning as with `gnome-screencast'"
+The other arguments have the same meaning as with `gnome-screencast'."
   (pcase (dbus-call-method
 	  :session "org.gnome.Shell.Screencast"
 	  "/org/gnome/Shell/Screencast"
@@ -78,7 +84,8 @@ The other arguments have the same meaning as with `gnome-screencast'"
     (`(t ,filename) filename)))
 
 (defun gnome-screencast-stop ()
-  "Stop the recording started by either `gnome-screencast' or `gnome-screencast-area'"
+  "Stop the recording.
+Recording may be started by either `gnome-screencast' or `gnome-screencast-area'."
   (interactive)
   (dbus-call-method
    :session "org.gnome.Shell.Screencast"
