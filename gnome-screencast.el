@@ -6,7 +6,7 @@
 ;; Author: Jürgen Hötzel <juergen@hoetzel.info>
 ;; Keywords: tools, multimedia
 ;; Package-Requires: ((emacs "25"))
-;; URL: https://github.com/juergenhoetzel/gnome-screencast.el
+;; URL: https://github.com/juergenhoetzel/emacs-gnome-screencast
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
