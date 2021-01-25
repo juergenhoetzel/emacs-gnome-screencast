@@ -1,4 +1,5 @@
 #+title: Use Gnome shell’s screen recorder from within Emacs
+[[http://melpa.org/#/gnome-screencast][file:http://melpa.org/packages/gnome-screencast-badge.svg]]
 
 * Installation
 
