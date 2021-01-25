@@ -3,10 +3,10 @@
 
 * Installation
 
-I recommend to use [[https://cask.github.io/why-cask.html][Cask]]. Add this to your =Cask= file:
+Just use [[https://melpa.org][MELPA]]. Here's an oneliner using [[https://github.com/jwiegley/use-package][use-package]]:
 
-#+BEGIN_SRC elisp
-(depends-on "gnome-screencast" :git "https://github.com/juergenhoetzel/emacs-gnome-screencast.git")
+#+BEGIN_SRC emacs-lisp
+  (use-package gnome-screencast :ensure t)
 #+END_SRC
 
 * Usage
