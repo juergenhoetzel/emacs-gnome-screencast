@@ -35,7 +35,7 @@
   (dbus-ping :session "org.gnome.Shell.Screencast"))
 
 (defun gnome-screencast--make-options (&optional draw-cursor framerate pipeline)
-  ; checkdoc-params: (draw-cursor framerate pipeline)"
+					; checkdoc-params: (draw-cursor framerate pipeline)
   "Create a dbus dictionary of optional parameters."
   (let ((options `((:dict-entry "draw-cursor" (:variant :boolean ,draw-cursor)))))
     (when framerate
@@ -67,7 +67,7 @@ Returns the filename of the screencast or nil if the start of recording failed."
 
 (defun gnome-screencast-area
     (prefix x y width height &optional draw-cursor framerate pipeline)
-  ; checkdoc-params: (prefix draw-cursor framerate pipeline)"
+					; checkdoc-params: (prefix draw-cursor framerate pipeline)"
   "Record a screencast.
 X and Y specifies coordinates of the area to capture, WIDTH and HEIGHT
 specifies area to capture.
